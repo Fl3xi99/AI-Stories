@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Stories</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/buy.html">Buy Stories</a>
+        <a href="/mystories.html">My Stories</a>
+        <a href="/account.html">My Account</a>
+        <a href="/logout">Logout</a>
+    </nav>
+
+    <div class="container">
+        <h2>Welcome, {{ username }}!</h2>
+        <p>Here are your purchased stories:</p>
+
+        <!-- For now, static content until we build database logic -->
+        <ul>
+  {% for story in stories %}
+    <li>{{ story.title }}</li>
+  {% else %}
+    <li>You haven’t purchased any stories yet.</li>
+  {% endfor %}
+</ul>
+
+    </div>
+</body>
+</html>

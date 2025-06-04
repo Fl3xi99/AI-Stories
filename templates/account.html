@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Account - AI Story Shop</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/buy.html">Buy Stories</a>
+        <a href="/mystories.html">My Stories</a>
+        <a href="/account.html">My Account</a>
+    </nav>
+
+    <div class="container">
+        <h2>Login or Signup</h2>
+        <form method="POST">
+            <label>Username:</label><br>
+            <input type="text" name="username" required><br>
+            <label>Password:</label><br>
+            <input type="password" name="password" required><br><br>
+
+            <button type="submit" name="action" value="login">Login</button>
+            <button type="submit" name="action" value="signup">Signup</button>
+        </form>
+        {% if message %}
+        <p style="color:red;">{{ message }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

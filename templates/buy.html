@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buy AI Stories</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/buy.html">Buy Stories</a>
+        <a href="/mystories.html">My Stories</a>
+        <a href="/account.html">My Account</a>
+        <a href="/logout">Logout</a>
+    </nav>
+
+    <div class="container">
+        <h2>Buy Stories</h2>
+        {% for story in stories %}
+        <div class="story-box">
+            <h3>{{ story.title }}</h3>
+            <p>Price: {{ story.price }}</p>
+            <form method="POST">
+                <input type="hidden" name="story_id" value="{{ story.id }}">
+                <button type="submit">Buy</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
